@@ -1,2 +1,2 @@
 # sam-site
-websites
+sam-sites
