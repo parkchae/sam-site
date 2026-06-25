@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>I Love You my Pumpkin</title>
+
+<style>
+body{
+    margin:0;
+    overflow:hidden;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(135deg,#ffd6e7,#ffe9c7);
+    font-family:Arial,sans-serif;
+}
+
+h1{
+    position:absolute;
+    color:white;
+    text-shadow:0 0 15px rgba(255,0,100,.5);
+    font-size:4rem;
+    z-index:10;
+    animation: glow 2s infinite alternate;
+}
+
+@keyframes glow{
+    from{transform:scale(1);}
+    to{transform:scale(1.05);}
+}
+
+.flower{
+    position:absolute;
+    bottom:-50px;
+    font-size:2rem;
+    animation: floatUp linear forwards;
+}
+
+@keyframes floatUp{
+    to{
+        transform:translateY(-110vh) rotate(360deg);
+        opacity:0;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<h1>🎀 I Love You my Pumpkin 🎀</h1>
+
+<script>
+function createFlower(){
+    const flower = document.createElement("div");
+    flower.classList.add("flower");
+
+    const flowers = ["🌸","🌷","🌹","💐","🌺"];
+    flower.innerHTML = flowers[Math.floor(Math.random()*flowers.length)];
+
+    flower.style.left = Math.random()*100 + "vw";
+    flower.style.animationDuration = (4 + Math.random()*4) + "s";
+
+    document.body.appendChild(flower);
+
+    setTimeout(()=>{
+        flower.remove();
+    },8000);
+}
+
+setInterval(createFlower,200);
+</script>
+
+</body>
+</html>
